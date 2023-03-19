@@ -15,36 +15,32 @@ const motor=document.getElementById('motor');
 const button1 = document.getElementById('server-run');
   const button2 = document.getElementById('webcamButton');
   window.addEventListener('load',()=>{
-const accessToken = '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';
-const owner = 'karthikeyan1903038';
-const repo = 'Gesture';
-const path = 'file.txt';
+const url = "https://api.github.com/gists/server";
 
-const fileContent = 'This is the content of my new file';
-
-fetch("https://api.github.com/gists/server", {
-  method: 'PUT',
-  headers: {
-    'Authorization': "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",
-    'Content-Type': 'application/json',
-    'Accept': 'application/vnd.github.v3+json'
-  },
-  body: JSON.stringify(
+const data = {
     "description": "Data for NodeMCU device",
     "public": true,
     "files": {
         "data.txt": {
             "content": "Hello, NodeMCU!"
         }
-    })
-})
-.then(response => response.json())
-.then(data => {
-  console.log('File created:', data);
-})
-.catch(error => {
-  console.error('Error:', error);
-});
+    }
+};
+
+const options = {
+    method: "PUT",
+    headers: {
+        "Authorization": "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",
+        "Content-Type": "application/json",
+        "Accept": "application/vnd.github.v3+json"
+    },
+    body: JSON.stringify(data)
+};
+
+fetch(url, options)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
 
   })
   button1.addEventListener('click', () => {
