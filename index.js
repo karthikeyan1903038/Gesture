@@ -29,10 +29,14 @@ fetch("https://api.github.com/gists/server", {
     'Content-Type': 'application/json',
     'Accept': 'application/vnd.github.v3+json'
   },
-  body: JSON.stringify({
-    message: 'Create new file',
-    content: btoa(fileContent),
-  })
+  body: JSON.stringify(
+    "description": "Data for NodeMCU device",
+    "public": true,
+    "files": {
+        "data.txt": {
+            "content": "Hello, NodeMCU!"
+        }
+    })
 })
 .then(response => response.json())
 .then(data => {
