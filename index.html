@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gesture Detection</title>
+    <script type="module" src="index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+<link href="index.css" rel="stylesheet">
+<h1>Gesture Detection</h1>
+</head>
+<body>
+    <div class="right-pane">
+      <button id="server-run" style="background-color: rgb(146, 239, 146);border:2px solid black">Connect Server</button>
+      Hall light<p id="hallLight"></p>
+      Bed room Light<p id="bedLight"></p>
+      Hall Fan<p id="hallFan"></p>
+      Bed room Fan<p id="bedFan"></p>
+      Motor<p id="motor"></p>
+    </div>
+    <section id="demos" class="invisible">
+      <div id="liveView" class="videoView">
+        <button id="webcamButton" onclick="displayMessage()" disabled>ENABLE WEBCAM</button>
+        <p id="fingersShown">Not Detecting</p>
+        <div style="position: relative;">
+          <video id="webcam" style="width: 1280px; height: 720px; position: abso" autoplay playsinline></video>
+          <canvas class="output_canvas" id="output_canvas" width="1280" height="720" style="position: absolute; left: 0px; top: 0px;"></canvas>
+        </div>
+      </div>
+      </section>
+</body>
+</html>
+
