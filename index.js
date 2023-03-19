@@ -16,6 +16,7 @@ const button1 = document.getElementById('server-run');
   const button2 = document.getElementById('webcamButton');
   window.addEventListener('load',()=>{
     Post()
+    console.log("hi");
   })
   button1.addEventListener('click', () => {
     Post()
