@@ -15,7 +15,7 @@ const motor=document.getElementById('motor');
 const button1 = document.getElementById('server-run');
   const button2 = document.getElementById('webcamButton');
   window.addEventListener('load',()=>{
-const url = "https://api.github.com/gists/server";
+const url = "https://api.github.com/gists/fcee70ec2278316079dad7422d7179de";
 
 const data = {
     "description": "Data for NodeMCU device",
