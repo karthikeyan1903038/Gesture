@@ -15,8 +15,33 @@ const motor=document.getElementById('motor');
 const button1 = document.getElementById('server-run');
   const button2 = document.getElementById('webcamButton');
   window.addEventListener('load',()=>{
-    Post()
-    console.log("hi");
+const accessToken = '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';
+const owner = 'karthikeyan1903038';
+const repo = 'Gesture';
+const path = 'file.txt';
+
+const fileContent = 'This is the content of my new file';
+
+fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
+  method: 'PUT',
+  headers: {
+    'Authorization': `Bearer ${accessToken}`,
+    'Content-Type': 'application/json',
+    'Accept': 'application/vnd.github.v3+json'
+  },
+  body: JSON.stringify({
+    message: 'Create new file',
+    content: btoa(fileContent),
+  })
+})
+.then(response => response.json())
+.then(data => {
+  console.log('File created:', data);
+})
+.catch(error => {
+  console.error('Error:', error);
+});
+
   })
   button1.addEventListener('click', () => {
     Post()
