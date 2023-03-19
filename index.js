@@ -15,34 +15,29 @@ const motor=document.getElementById('motor');
 const button1 = document.getElementById('server-run');
   const button2 = document.getElementById('webcamButton');
   window.addEventListener('load',()=>{
-const url = "https://api.github.com/gists/fcee70ec2278316079dad7422d7179de";
+  const data = { key1: 'value1', key2: 'value2' };
+const gistId = "fcee70ec2278316079dad7422d7179de";
 
-const data = {
-    "description": "Data for NodeMCU device",
-    "public": true,
-    "files": {
-        "data.txt": {
-            "content": "Hello, NodeMCU!"
-        }
+fetch(`https://api.github.com/gists/${gistId}`, {
+  method: 'PATCH',
+  body: JSON.stringify({
+    files: {
+      'data.json': {
+        content: JSON.stringify(data)
+      }
     }
-};
-
-const options = {
-    method: "PUT",
-    headers: {
-        "Authorization": "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",
-        "Content-Type": "application/json",
-        "Accept": "application/vnd.github.v3+json"
-    },
-    body: JSON.stringify(data)
-};
-
-fetch(url, options)
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
-
-  })
+  }),
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': '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'
+  }
+})
+.then(response => response.json())
+.then(gist => {
+  const gistUrl = gist.html_url;
+  // Do something with the Gist URL
+});
+  });//
   button1.addEventListener('click', () => {
     Post()
   });
