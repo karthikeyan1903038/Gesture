@@ -15,17 +15,17 @@ const motor=document.getElementById('motor');
 const button1 = document.getElementById('server-run');
   const button2 = document.getElementById('webcamButton');
   window.addEventListener('load',()=>{
-const accessToken = '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';
+const accessToken = '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';
 const owner = 'karthikeyan1903038';
 const repo = 'Gesture';
 const path = 'file.txt';
 
 const fileContent = 'This is the content of my new file';
 
-fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
+fetch("https://api.github.com/gists/server", {
   method: 'PUT',
   headers: {
-    'Authorization': `Bearer ${accessToken}`,
+    'Authorization': "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",
     'Content-Type': 'application/json',
     'Accept': 'application/vnd.github.v3+json'
   },
